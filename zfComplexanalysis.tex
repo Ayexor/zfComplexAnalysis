@@ -1,0 +1,106 @@
+% !TeX spellcheck = en_GB
+\input{./header.tex}
+
+\author{Roy Seitz}
+\title{Complex Analysis\\Summary}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Complex numbers and the complex plane}
+\begin{definition}
+  We denote the \textbf{open} and \textbf{closed disks} of radius $r>0$ around $z_0 \in \mathbb C$ with
+  \[ D_r(z_0) \coloneqq \{z \in \mathbb z \mid |z - z_0| < r\}
+  \qquad\text{and}\qquad
+  \overline D_r(z_0) \coloneqq \{z \in \mathbb z \mid |z - z_0| \le r\}.\]
+  We call $z \in \Omega$ an \textbf{interior point} if there exists an $r > 0$ such that $D_r(z) \subset \Omega$.
+\end{definition}
+And more stuff like continuity, open covers, compact sets\textellipsis
+
+\section{Functions on the complex plane}
+Let $\Omega \subset \mathbb C$ be a set,
+$U \subset \mathbb C$ be open
+and $f\colon U \to \mathbb C$ a function.
+We denote the real and imaginary part as
+$z = x + iy$ and $f = u + iv$.
+
+\begin{definition}
+  Letz $z_0 \in U$ and $h \in \mathbb C$.
+  $f$ is called \textbf{holomorphic in $z_0$} if
+  \[f'(z_0) = \lim_{h \to 0} \frac{f(z_0 + h) - f(z_0)}{h}\]
+  exists.
+  If $f$ is holomorphic for all $z \in U$, $f$ is called \textbf{holomorphic (on $U$)}.
+  If $f$ is defined and holomorphic for all $z \in \mathbb C$, $f$ is called an \textbf{entire function}.
+  The set of all holomorphic functions on $U$ is denoted
+  \[\mathcal H(U) \coloneqq \{f\in \prescript{U}{}{\mathbb C} \mid f~\text{is holomorphic} \}. \]
+\end{definition}
+
+\begin{proposition}
+  let $f, g \in \mathcal H(U)$.
+  Then
+  $f+g$ and $fg$ are in $\mathbb H(U)$ with $(fg)' = f'g + fg'$,
+  and also $f/g$ with $(f/g)' = (f'g - fg') / g^2$ if $g\ne 0$.
+  Moreover, if for $z \in U$ we have $f(z) \in U$, then
+  \[(g \circ f)'(z) = g'(f(z)) f'(z).\]
+\end{proposition}
+
+\begin{definition}
+  The \textbf{Cauchy-Riemann equations} are
+  \[
+  \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}
+  \qquad\text{and}\qquad
+  \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+  \]
+\end{definition}
+
+\begin{proposition}
+  If $f$ is holomorphic, then
+  \[
+  \frac{\partial f}{\partial \bar z} = 0
+  \qquad\text{and}\qquad
+  f'(z_0) = \frac{\partial f}{\partial z} = 2\frac{\partial u}{\partial z} (z_0).
+  \]
+\end{proposition}
+
+\begin{theorem}
+  If $u$ and $v$ are continuously differentiable and satisfy the Cauchy-Riemann equations,
+  then $f$ is holomorphic.
+\end{theorem}
+
+\begin{definition}
+  Let $z_0, a_n \in \mathbb C$ for all $n\in\mathbb N$.
+  The formal infinite sum
+  \[
+  f(z) = \sum_{n=0}^\infty a_n (z - z_0)^n
+  \]
+  is called \textbf{power series around $z_0$}.
+\end{definition}
+
+\begin{theorem}
+  Let $f$ be a power series.
+  Then there exists a non-negative $R \in \mathbb R \cup \{\infty\}$ such that
+  \begin{enumerate}
+    \item $f(z)$ converges absolutely for all $z \in D_R(z_0)$
+    \item $f(z)$ diverges for all $z \notin \overline D_R(z_0)$.
+  \end{enumerate}
+  $R$ is called the \textbf{Radius of convergence} and is given by
+  $1/R = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$
+  where $1/0 = \infty$ and $1/\infty = 0$.
+\end{theorem}
+
+\begin{theorem}
+  Let $f$ be a power series around $z_0 \in \mathbb C$ with radius of convergence $R$.
+  Then $f$ is holomorphic on $D_R(z_0)$.
+  $f'$ is also a power series around $z_0$ and radius of convergence $R$.
+\end{theorem}
+
+\begin{definition}
+  A function $f$ is called \textbf{analytic}
+  if there exists a power series $p(z)$ around $z_0 \in U$ with strictly positive radius of convergence
+  such that $\forall z \in D_(z_0)\colon f(z) = p(z)$.
+\end{definition}
+
+\section{Integration along curves}
+
+\end{document}
+
